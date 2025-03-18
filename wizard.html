@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BdayMagician</title>
+</head>
+<body>
+
+  
+  
+  <div class="sentence"></div>
+
+
+<a href="https://silexsteinjk.github.io/happybirthday/indexcard.html.html
+"><button style="background-color: lightgreen;margin-top:200px ;position: absolute;font-size: 20px;color: darkred;font-weight: 900;">OPEN YOUR CARD</button></a>
+
+
+<style type="text/css">
+
+  a{
+
+    position: absolute;
+  }
+  
+  html, body {
+      height: 100%;
+      margin: 0;
+      font-family: monospace;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    .sentence {
+      color: #48fb47;
+      font-size: 3em;
+      position: relative;
+    }
+
+
+.sentence::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  bottom: 6px;
+    width: 14px;
+    height: 2px;
+  background-color: #DAFDBA;
+  animation: blink 0.5s linear infinite;
+}
+
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+</style>
+
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+  const sentences = [
+    'Wait ',
+    'Dont click on ( Open your card ) now',
+    'Hear me out first',
+    'Btw Hey its me ',
+    'Marwa :)',
+    
+' I dont know if you will live for ',
+'A year ?','A decade ?', 'An age ?', 'or days ?', ' nvm that', 
+
+'Since you are one year closer to your death',  'I had much ideas about what I can offer you in this tragic day ', 
+'And I forgot that the real present is ..',
+'YOU', 
+'Yes', ' Yourself', 'The one you built', 
+
+'Dear TheMagician',
+'To another year ',
+    'Of glowing in ','STRENTH','WISDOM','AND GRACE ',
+    'Your beautiful soul', 'Your understanding', 'Your kindness', 'make the world a better place',
+    'No wonder why..', 'You are named TheMagician', 'Not cus you do magic ', 'But cus u make the world around u..', 'MAGICAL',
+
+
+
+
+'Now You can open your card ! ',
+'I will repeat the script in case you want to reread it',
+
+
+  ];
+  
+  let currentIndex = 0;
+  let offset = 0;
+  const sentenceElement = document.querySelector('.sentence');
+  let forwards = true;
+  let skipCount = 0;
+  const skipDelay = 15;
+  const speed = 75;
+
+  const updateSentence = () => {
+    sentenceElement.textContent = sentences[currentIndex].substring(0, offset);
+  };
+
+  const handleAnimation = () => {
+    if (forwards) {
+      if (offset >= sentences[currentIndex].length) {
+        if (++skipCount === skipDelay) {
+          forwards = false;
+          skipCount = 0;
+        }
+      }
+    } else if (offset === 0) {
+      forwards = true;
+      currentIndex = (currentIndex + 1) % sentences.length;
+    }
+
+    if (skipCount === 0) {
+      forwards ? offset++ : offset--;
+    }
+
+    updateSentence();
+  };
+
+  setInterval(handleAnimation, speed);
+});
+</script>
+
+
+</body>
+</html>
+
